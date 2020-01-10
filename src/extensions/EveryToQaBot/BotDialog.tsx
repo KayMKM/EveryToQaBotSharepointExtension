@@ -9,6 +9,7 @@ import { Dispatcher } from "flux";
 import FileData from "./models/FileData"
 
 export class BotDialog extends BaseDialog {
+  public siteUrl: string;
   public data: Array<FileData>;
   public context: ListViewCommandSetContext;
 
@@ -24,15 +25,6 @@ export class BotDialog extends BaseDialog {
   }
 
   public render(): void {
-    // const reactElement: React.ReactElement<IThumbnailDialogContentProps> = React.createElement(
-    //   ThumbnailDialogContent,
-    //   {
-    //     data: this.data,
-    //     context: this.context,
-    //     close: this._close
-    //   }
-    // );
-    // ReactDOM.render(reactElement, this.domElement);
     const eventDispatcher = new Dispatcher();
     const store = createStore({},
         () => next => action => {
@@ -45,6 +37,6 @@ export class BotDialog extends BaseDialog {
     });
 
     let fileList = this.data;
-    ReactDOM.render(<App store={store} eventDispatcher={eventDispatcher} fileList={fileList} />, this.domElement)
+    ReactDOM.render(<App store={store} eventDispatcher={eventDispatcher} siteUrl={this.siteUrl} fileList={fileList} />, this.domElement)
   }
 }

@@ -78,6 +78,7 @@ export default class EveryToQaBotCommandSet extends BaseListViewCommandSet<IEver
           files.push(new FileData(itemName, '/sites' + siteName + '/' + listName + '/' + itemName, index++));
         });
         dialog.data = files;
+        dialog.siteUrl = siteUrl.split('/sites')[0];
         dialog.show();
 
         break;

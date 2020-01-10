@@ -10,13 +10,13 @@ import FileData from './models/FileData';
 
 /*global chrome*/
 
-function App(props: { store: any, eventDispatcher: any, fileList: Array<FileData>}) {
+function App(props: { store: any, eventDispatcher: any, siteUrl: string, fileList: Array<FileData>}) {
   const tempUserId = 'TempUserId';
   let toDispatch: any[] = [];
   const fileHostUrl = ""
 
   const [ qnAs, setQnAs ] = React.useState({});
-  const { store, eventDispatcher, fileList } = props;
+  const { store, eventDispatcher, siteUrl, fileList } = props;
   const webChatToken = "";
   const stateInit = new Array(fileList.length);
   stateInit.fill(true, 0, stateInit.length);
@@ -83,7 +83,7 @@ function App(props: { store: any, eventDispatcher: any, fileList: Array<FileData
                 }
             });
         if (response == null) return;
-        filesDescription.push(`${fileList[index].fileName}`);
+        filesDescription.push(`${fileList[index].fileName} url: ${siteUrl + fileList[index].url}`);
         files.push({
           fileName: fileList[index].fileName,
           fileUri: `${fileHostUrl}?id=${String(response.data)}`
