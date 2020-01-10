@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "every-to-qa-bot-command-set": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/EveryToQaBot/EveryToQaBotCommandSet.js",
+          "manifest": "./src/extensions/EveryToQaBot/EveryToQaBotCommandSet.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "GetThumbnailCommandSetStrings": "lib/extensions/EveryToQaBot/loc/{locale}.js"
+  }
+}
